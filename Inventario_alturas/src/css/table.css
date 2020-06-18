@@ -28,7 +28,24 @@
 #prueba{
     padding:10px;
     position: relative;
-    top: 200px;
+    top: 60px;
+}
+.small-box{
+	border-radius: 15px;
+}
+sub{
+	position: relative;
+	left: 100px;
+	top:20px;
+}
+a{
+	position: relative;
+	left: 140px;
+	background:#CAA6A6;
+}
+input#botn{
+	position: relative;
+	left: 250px;
 }
 
 /*responsive*/

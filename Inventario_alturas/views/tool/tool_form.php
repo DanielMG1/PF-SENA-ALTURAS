@@ -1,26 +1,34 @@
 <?php
 require_once '././layouts/header.php';
  ?>
-  <form class="" action='index.php?controller=tool&action=save' method="post">
+ <div style="position: relative; top: 100px;" class="modal-content">
+  <form action='index.php?controller=tool&action=save' method="post">
     <input type="hidden" name="id" value="<?php echo $tool->id; ?>">
-    <br>
-    Nombre
-    <input type="text" name="nombre" value="<?php echo $tool->nombre; ?>">
-    <br>
-    Marca
-    <input type="text" name="marca" value="<?php echo $tool->marca; ?>">
-    <br>
-    Longitud
-    <input type="text" name="longitud" value="<?php echo $tool->longitud; ?>">
-    <br>
-    Serie
-    <input type="text" name="serie" value="<?php echo $tool->serie; ?>">
-    <br>
-    Descripcion
-    <input type="text" name="descripcion" value="<?php echo $tool->descripcion; ?>">
-    <br>
-    Acomulado
-    <input type="text" name="acomulado" value="<?php echo $tool->acomulado; ?>">
-    <br>
-    <input type="submit" name="send" value="Guardar">
+    <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" name="nombre" value="<?php echo $tool->nombre; ?>" placeholder="Nombre">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" name="marca" value="<?php echo $tool->marca; ?>" placeholder="Marca">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" name="longitud" value="<?php echo $tool->longitud; ?>" placeholder="Longitud">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" name="serie" value="<?php echo $tool->serie; ?>" placeholder="Serie">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" name="descripcion" value="<?php echo $tool->descripcion; ?>" placeholder="Descripcion">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" name="acomulado" value="<?php echo $tool->acomulado; ?>" placeholder="Acomulado">
+        </div>
+    </div>
+    <input style="position: relative; left: 47%; top:40px;" type="submit" id="botn" name="send" class="btn btn-primary" value="Guardar">
   </form>
+</div>

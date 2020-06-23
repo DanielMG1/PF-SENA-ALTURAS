@@ -8,6 +8,11 @@ class Tool extends Crud{
   private $serie;
   private $descripcion;
   private $acomulado;
+  private $foto;
+  private $entidad_cert;
+  private $fecha_fbc;
+  private $norma_cert;
+  private $limite_vid;
   const TABLE = 'tool';
   private $pdo;
   public function __construct(){
@@ -24,8 +29,8 @@ class Tool extends Crud{
 
   public function create(){
     try{
-      $stm=$this->pdo->prepare("INSERT INTO ".self::TABLE." (nombre, marca, longitud, serie, descripcion, acomulado) VALUES (?,?,?,?,?,?)");
-      $stm->execute(array($this->nombre,$this->marca,$this->longitud,$this->serie,$this->descripcion,$this->acomulado));
+      $stm=$this->pdo->prepare("INSERT INTO ".self::TABLE." (nombre, marca, longitud, serie, descripcion, acomulado, foto, entidad_cert, fecha_fbc,norma_cert,limite_vid) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+      $stm->execute(array($this->nombre,$this->marca,$this->longitud,$this->serie,$this->descripcion,$this->acomulado,$this->foto,$this->entidad_cert,$this->fecha_fbc,$this->norma_cert,$this->limite_vid));
     }catch(PDOException $e){
       echo $e->getMessage();
    }
@@ -33,8 +38,8 @@ class Tool extends Crud{
 
   public function update(){
     try{
-      $stm=$this->pdo->prepare("UPDATE ".self::TABLE." SET nombre=?, marca=?, longitud=?, serie=?, descripcion=?, acomulado=? WHERE id=?");
-      $stm->execute(array($this->nombre,$this->marca,$this->longitud,$this->serie,$this->descripcion,$this->acomulado,$this->id));
+      $stm=$this->pdo->prepare("UPDATE ".self::TABLE." SET nombre=?, marca=?, longitud=?, serie=?, descripcion=?, acomulado=?, foto=?, entidad_cert=?,fecha_fbc=?,norma_cert=?,limite_vid=? WHERE id=?");
+      $stm->execute(array($this->nombre,$this->marca,$this->longitud,$this->serie,$this->descripcion,$this->acomulado,$this->foto,$this->entidad_cert,$this->fecha_fbc,$this->norma_cert,$this->limite_vid,$this->id));
     }catch(PDOException $e){
       echo $e->getMessage();
    }

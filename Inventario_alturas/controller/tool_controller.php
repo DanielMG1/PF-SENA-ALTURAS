@@ -26,6 +26,14 @@ require_once 'models/tool.php';
         $tool->serie=$_REQUEST['serie'];
         $tool->descripcion=$_REQUEST['descripcion'];
         $tool->acomulado=$_REQUEST['acomulado'];
+        $tool->foto=$_FILES['foto']['name'];
+        $tool->fototemporal=$_FILES['foto']['tmp_name'];
+        $fotourl = "../views/tool/images/" . $foto;
+        copy($fototemporal,$fotourl);
+        $tool->entidad_cert=$_REQUEST['entidad_cert'];
+        $tool->fecha_fbc=$_REQUEST['fecha_fbc'];
+        $tool->norma_cert=$_REQUEST['norma_cert'];
+        $tool->limite_vid=$_REQUEST['limite_vid'];
         $tool->id>0?$tool->update():$tool->create();
         header('location: index.php');
       }

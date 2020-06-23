@@ -158,11 +158,11 @@
         <a href="#" class="logo"><img src="../src/img/logo.jpg" alt=""></a>
         <i class="menu-toggle-btn fas fa-bars"></i>
         <nav class="navigation-menu">
-          <a href="views/home.php"><i class="fas fa-home home"></i> Home</a>
-          <a href="../index.php"><i class="fas fa-archive about"></i> Herramientas</a>
-          <a href="#"><i class="fab fa-algolia works"></i> Mantinimiento</a>
-          <a href="views/guide.php"><i class="fas fa-users team"></i> Guia</a>
-          <a href="#"><i class="fas fa-cog contact"></i> Config</a>
+          <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/views/home.php"><i class="fas fa-home home"></i> Home</a>
+          <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/index.php"><i class="fas fa-archive about"></i> Herramientas</a>
+          <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/index.php?controller=categoria&action=indexCategoria"><i class="fas fa-folder works"></i> Categorias</a>
+          <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/views/guide.php"><i class="fas fa-users team"></i> Guia</a>
+          <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/views/login/login.php"><i class="fa fa-user-circle contact" aria-hidden="true"></i> Login</a>
         </nav>
       </div>
     </header>

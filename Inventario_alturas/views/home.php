@@ -2,7 +2,7 @@
 <div class="contact-info">
       <div class="card">
         <i class="card-icon fa fa-archive"></i>
-        <p>20 Herremientas</p>
+        <p><?php echo 'Número de total de registros: ' . $fila['total']; ?></p>
       </div>
 
       <div class="card">
@@ -12,7 +12,7 @@
 
       <div class="card">
         <i class="card-icon fas fa-map-marker-alt"></i>
-        <p>Sena Reginal,Caldas</p>
+        <p>Sena, Rigional Caldas</p>
       </div>
 </div>
 <div class="skills">

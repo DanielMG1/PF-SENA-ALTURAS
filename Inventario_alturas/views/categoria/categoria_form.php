@@ -1,6 +1,12 @@
 <?php
 require_once '././layouts/header.php';
  ?>
+ <br>
+   <div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm"><h1>Crud Categorias</h1></div>
+    <div class="col-sm"></div>
+  </div>
  <div style="position: relative; top: 100px;" class="container">
   <form action='index.php?controller=categoria&action=save' method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $categoria->id; ?>">

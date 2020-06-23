@@ -1,6 +1,12 @@
 <?php
 require_once '././layouts/header.php';
  ?>
+ <br>
+   <div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm"><h1>Crud Herramientas</h1></div>
+    <div class="col-sm"></div>
+  </div>
  <div style="position: relative; top: 100px;" class="container">
   <form action='index.php?controller=tool&action=save' method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $tool->id; ?>">
@@ -48,16 +54,14 @@ require_once '././layouts/header.php';
         <input type="file" name="foto" class="form-control-file" accept=".jpg, .png, .gif">
       </div>
         <div class="form-group">
-          <label for="exampleFormControlSelect1">Example select</label>
+          <label for="exampleFormControlSelect1">Categorias</label>
           <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option>Cascos</option>
+            <option>Cuerdas</option>
+            <option>Linia Vida</option>
           </select>
         </div>
-    </div>
+      </div>
     <div class="row">
       <div class="col-sm">
         <input type="submit" id="botn" name="send" class="btn btn-primary" value="Guardar">

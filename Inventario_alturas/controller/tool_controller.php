@@ -16,6 +16,13 @@ require_once 'models/tool.php';
         }
         require_once 'views/tool/tool_form.php';
       }
+     public function snowById(){
+        $tool = new Tool();
+        if(isset($_REQUEST['id'])){
+          $tool = $this->model->getById($_REQUEST['id']);
+        }
+        require_once 'views/tool/showbyid.php';
+      }
 
       public function save(){
         $tool = new Tool();

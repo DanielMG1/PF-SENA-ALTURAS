@@ -16,6 +16,13 @@ require_once 'models/categoria.php';
         }
         require_once 'views/categoria/categoria_form.php';
       }
+      public function snowById(){
+        $categoria = new Categoria();
+        if(isset($_REQUEST['id'])){
+          $categoria = $this->model->getById($_REQUEST['id']);
+        }
+        require_once 'views/categoria/showbyid.php';
+      }
 
       public function save(){
         $categoria = new Categoria();

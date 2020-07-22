@@ -50,18 +50,21 @@ require_once '././layouts/header.php';
       <div class="col-sm">
           <input type="text" class="form-control" name="limite_vid" value="<?php echo $tool->limite_vid; ?>" placeholder="Limite Vida">
       </div>
-      <div class="col-sm">
-        <input type="file" name="foto" class="form-control-file" accept=".jpg, .png, .gif">
-      </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Categorias</label>
+        <div class="col-sm form-group">
           <select class="form-control" id="exampleFormControlSelect1">
+            <option class="">Categorias</option>
             <option>Cascos</option>
             <option>Cuerdas</option>
             <option>Linia Vida</option>
           </select>
         </div>
       </div>
+    <div class="row">
+      <div class="col-sm">
+        <input type="file" name="foto" class="form-control-file" accept=".jpg, .png, .gif">
+      </div>
+    </div>
+    <br>
     <div class="row">
       <div class="col-sm">
         <input type="submit" id="botn" name="send" class="btn btn-primary" value="Guardar">

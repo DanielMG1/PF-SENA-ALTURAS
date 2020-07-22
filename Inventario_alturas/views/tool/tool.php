@@ -20,14 +20,15 @@
   </tr>
   <?php foreach($this->model->getAll() as $tool): ?>
   <tr>
+    <td><img src="<?php echo $tool->foto?>"></td>
     <td><?php echo $tool->nombre?></td>
     <td><?php echo $tool->marca?></td>
     <td><?php echo $tool->longitud?> Metros</td>
     <td><?php echo $tool->serie?></td>
     <td><?php echo $tool->descripcion?></td>
     <td><?php echo $tool->acomulado?></td>
-    <td><img src="<?php echo $tool->foto?>"></td>
     <td><?php echo $tool->entidad_cert?></td>
+    <td><a class="btn btn-info" href="index.php?controller=tool&action=snowById&id=<?php echo $tool->id; ?>">Ver</a></td>
     <td><a class="btn btn-warning" href="index.php?controller=tool&action=showById&id=<?php echo $tool->id; ?>">Editar</a></td>
     <td><a class="btn btn-danger" onclick="javascript:return confirm('¿Seguro de Eliminar?');" href="index.php?controller=tool&action=quit&id=<?php echo $tool->id; ?>">Eliminar</a></td>
   </tr>

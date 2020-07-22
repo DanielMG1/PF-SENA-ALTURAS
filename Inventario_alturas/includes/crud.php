@@ -20,6 +20,16 @@ abstract class Crud extends Connection{
       echo $e->getMessage();
     }
   }
+  // public function countAll()
+  // {
+  //   try {
+  //     $stm=$this->pdo->prepare('SELECT COUNT(*) FROM $this->table');
+  //     $stm->execute();
+  //     return $stm->fetchAll(PDO::FETCH_OBJ);
+  //   } catch (PDOException $e) {
+  //     echo $e->getMessage();
+  //   }
+  // }
   public function getById($id)
   {
     try {

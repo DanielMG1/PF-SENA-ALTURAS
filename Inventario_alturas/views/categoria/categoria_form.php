@@ -17,10 +17,13 @@ require_once '././layouts/header.php';
         <div class="col-sm">
           <input type="text" class="form-control" name="descripcion" value="<?php echo $categoria->descripcion; ?>" placeholder="Descripcion">
         </div>
-       <div class="col-sm">
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm">
         <input type="file" name="foto" class="form-control-file" accept=".jpg, .png, .gif">
       </div>
-    </div>
+    </div>  
     <br>
     <div class="row">
       <div class="col-sm">

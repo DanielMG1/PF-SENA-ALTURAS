@@ -1,39 +1,52 @@
 <?php include_once('../layouts/header.php'); ?>
+
+<?php
+$hostname="localhost";
+$username="root";
+$password="";
+$db = "altura";
+$dbh = new PDO("mysql:host=$hostname;dbname=$db", $username, $password);
+foreach($dbh->query('SELECT COUNT(*) FROM tool') as $row) {
+}
+foreach($dbh->query('SELECT COUNT(*) FROM categoria') as $rowa) {
+}
+?>
+
 <div class="contact-info">
       <div class="card">
         <i class="card-icon fa fa-archive"></i>
-        <p><?php echo 'Número de total de registros: ' . $fila['total']; ?></p>
+        <p><?php echo "Numero de Herramientas " . $row['COUNT(*)']; ?></p>
       </div>
 
       <div class="card">
-        <i class="card-icon fa fa-address-card"></i>
-        <p>Usuarios Registados</p>
+        <i class="card-icon fas fa-folder"></i>
+        <p><?php echo "Numero de Categorias " . $rowa['COUNT(*)']; ?></p>
       </div>
 
       <div class="card">
-        <i class="card-icon fas fa-map-marker-alt"></i>
-        <p>Sena, Rigional Caldas</p>
+        <i class="card-icon fas fa-user"></i>
+        <p>Usuarios Registrados 0</p>
       </div>
 </div>
 <div class="skills">
       <div class="skill">
-        <div class="skill-name">Herremientas</div>
+        <div class="skill-name">Herramientas</div>
         <div class="skill-bar">
-          <div class="skill-per" per="90"></div>
+          <div class="skill-per" per=<?php echo $row["COUNT(*)"]; ?>></div>
         </div>
       </div>
 
       <div class="skill">
         <div class="skill-name">Categorias</div>
         <div class="skill-bar">
-          <div class="skill-per" per="70"></div>
+          <div class="skill-per" per=<?php echo $rowa["COUNT(*)"]; ?>></div>
         </div>
       </div>
 
       <div class="skill">
         <div class="skill-name">Usuarios</div>
         <div class="skill-bar">
-          <div class="skill-per" per="60"></div>
+          <div class="skill-per" per="0"></div>
         </div>
       </div>
     </div>

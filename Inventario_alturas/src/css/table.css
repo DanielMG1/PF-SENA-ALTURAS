@@ -40,7 +40,7 @@ sub{
 }
 a{
 	position: relative;
-	left: 140px;
+	left: 0px;
 	background:#CAA6A6;
 }
 input#botn{

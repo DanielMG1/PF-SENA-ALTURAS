@@ -21,12 +21,14 @@
   </tr>
   <?php foreach($this->model->getAll() as $categoria): ?>
   <tr>
+    <td><img src="<?php echo $categoria->foto?>"></td>
     <td><?php echo $categoria->nombre?></td>
     <td><?php echo $categoria->descripcion?></td>
-    <td><img src="<?php echo $categoria->foto?>"></td>
+    <td><a class="btn btn-info" href="index.php?controller=categoria&action=snowById&id=<?php echo $categoria->id; ?>">Ver</a></td>
     <td><a class="btn btn-warning" href="index.php?controller=categoria&action=showById&id=<?php echo $categoria->id; ?>">Editar</a></td>
     <td><a class="btn btn-danger" onclick="javascript:return confirm('¿Seguro de Eliminar?');" href="index.php?controller=categoria&action=quit&id=<?php echo $categoria->id; ?>">Eliminar</a></td>
   </tr>
 <?php endforeach; ?>
+</table>
 </table>
 </div>

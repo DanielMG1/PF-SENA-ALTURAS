@@ -23,24 +23,18 @@
         font-family: "Open Sans",sans-serif;
       }
 
+      .row img#logo{
+        height: 80px;
+      }
       header{
         height: 90px;
-        background: #004039;
+        background: #31B9D3;
       }
 
       .inner-width{
         max-width: 1000px;
         padding: 0 10px;
         margin: auto;
-      }
-
-      .logo{
-        float: left;
-        padding: 20px 0;
-      }
-
-      .logo img{
-        height: 50px;
       }
 
       .navigation-menu{
@@ -52,7 +46,7 @@
 
       .navigation-menu a{
         margin-left: 10px;
-        color: #ddd;
+        color: white;
         text-transform: uppercase;
         font-size: 14px;
         padding: 12px 20px;
@@ -63,7 +57,7 @@
 
       .navigation-menu a:hover{
         background: #fff;
-        color: #2f3640;
+        color: black;
         transform: scale(1.1);
       }
 
@@ -73,23 +67,23 @@
       }
 
       .home{
-        color: #ff6b6b;
+        color: white;
       }
 
       .about{
-        color: #0abde3;
+        color: white;
       }
 
       .works{
-        color: #feca57;
+        color: white;
       }
 
       .team{
-        color: #5f27cd;
+        color: white;
       }
 
       .contact{
-        color: #1dd1a1;
+        color: white;
       }
 
       .menu-toggle-btn{
@@ -154,17 +148,18 @@
   </head>
   <body>
     <header>
-      <div class="inner-width">
-        <a href="#" class="logo"><img src="../src/img/logo.jpg" alt=""></a>
-        <i class="menu-toggle-btn fas fa-bars"></i>
-        <nav class="navigation-menu">
-          <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/views/home.php"><i class="fas fa-home home"></i> Home</a>
-          <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/index.php"><i class="fas fa-archive about"></i> Herramientas</a>
-          <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/index.php?controller=categoria&action=indexCategoria"><i class="fas fa-folder works"></i> Categorias</a>
-          <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/views/guide.php"><i class="fas fa-users team"></i> Guia</a>
-          <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/views/login/login.php"><i class="fa fa-user-circle contact" aria-hidden="true"></i> Login</a>
-        </nav>
-      </div>
+        <div class="row">
+          <div class="col-2 ml-5 mt-1">
+            <img id="logo" src="src/img/Logo-corto-white.png">
+          </div>
+          <div class="navigation-menu col-9">
+            <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/views/home.php"><i class="fas fa-home home"></i> Home</a>
+            <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/index.php"><i class="fas fa-archive about"></i> Herramientas</a>
+            <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/index.php?controller=categoria&action=indexCategoria"><i class="fas fa-folder works"></i> Categorias</a>
+            <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/views/guide.php"><i class="fas fa-users team"></i> Guia</a>
+            <a href="http://localhost/PF-SENA-ALTURAS/Inventario_alturas/views/login/login.php"><i class="fa fa-user-circle contact" aria-hidden="true"></i> Login</a>
+          </div>
+        </div>
     </header>
 
 

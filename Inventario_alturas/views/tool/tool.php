@@ -1,7 +1,9 @@
 <?php include_once('././layouts/header.php'); ?>
 <div class="container">
   <div class="row">
-    <a class="btn btn-info btn-mb bo" href='index.php?controller=tool&action=showById'>Nueva Herramienta</a>
+    <div class="col-sm"><a class="btn btn-info btn-mb bo" href='index.php?controller=tool&action=showById'>Nueva Herramienta</a></div>
+    <br>
+    <div class="col-sm"><a class="btn btn-warning btn-mb bo" href='index.php?controller=instructor&action=indexInstructor'>Listado de Instructures</a></div>
   </div> 
   <div class="row">
     <table id="example" class="table table-striped table-bordered">

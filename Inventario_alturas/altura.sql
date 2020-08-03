@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-06-2020 a las 16:42:49
+-- Tiempo de generación: 03-08-2020 a las 18:00:22
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.2.23
 
@@ -40,7 +40,35 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id`, `nombre`, `descripcion`, `foto`) VALUES
-(1, 'Cascos', 'Tipo de laso', '');
+(4, 'Lasos', 'herramientas utilizadas para alturas', ''),
+(11, 'Pastel', 'utilizado para alturas', ''),
+(12, 'Pastel', 'utilizado para alturas', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `instructor`
+--
+
+CREATE TABLE `instructor` (
+  `id` int(11) NOT NULL,
+  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` text COLLATE utf8_spanish_ci NOT NULL,
+  `cargo` text COLLATE utf8_spanish_ci NOT NULL,
+  `documento` int(11) NOT NULL,
+  `email` text COLLATE utf8_spanish_ci NOT NULL,
+  `ciudad` text COLLATE utf8_spanish_ci NOT NULL,
+  `direccion` text COLLATE utf8_spanish_ci NOT NULL,
+  `entidad` text COLLATE utf8_spanish_ci NOT NULL,
+  `anio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `instructor`
+--
+
+INSERT INTO `instructor` (`id`, `nombre`, `telefono`, `cargo`, `documento`, `email`, `ciudad`, `direccion`, `entidad`, `anio`) VALUES
+(5, 'Arturo Torres', '243453434', 'Instructor', 32454344, 'arturo@gmail.com', 'Manizales', 'cr6523654', 'SENA', 2016);
 
 -- --------------------------------------------------------
 
@@ -69,7 +97,8 @@ CREATE TABLE `tool` (
 --
 
 INSERT INTO `tool` (`id`, `nombre`, `marca`, `longitud`, `serie`, `descripcion`, `acomulado`, `foto`, `entidad_cert`, `fecha_fbc`, `norma_cert`, `limite_vid`, `id_cate_her`) VALUES
-(21, 'Lasos', 'Textil', 42356, 56356364, 'tipo de Cuerda ', 34, 'kronos-logo-hub.png', 'Casass', '2020-06-19', 'Caldas', '23', NULL);
+(21, 'Lasos', 'Textil', 42356, 56356364, 'tipo de Cuerda ', 34, '', 'Casass', '2020-06-19', 'Colombia', '23', NULL),
+(27, 'Cascos', 'lorems', 12, 2334, 'Material de lorem', 23, 'photo4927207721040717909.jpg', 'Casa', '2020-07-25', 'Caldas', '23', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -79,6 +108,12 @@ INSERT INTO `tool` (`id`, `nombre`, `marca`, `longitud`, `serie`, `descripcion`,
 -- Indices de la tabla `categoria`
 --
 ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `instructor`
+--
+ALTER TABLE `instructor`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -96,13 +131,19 @@ ALTER TABLE `tool`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `instructor`
+--
+ALTER TABLE `instructor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `tool`
 --
 ALTER TABLE `tool`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Restricciones para tablas volcadas

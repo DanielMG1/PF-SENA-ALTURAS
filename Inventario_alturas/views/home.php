@@ -10,6 +10,8 @@ foreach($dbh->query('SELECT COUNT(*) FROM tool') as $row) {
 }
 foreach($dbh->query('SELECT COUNT(*) FROM categoria') as $rowa) {
 }
+foreach($dbh->query('SELECT COUNT(*) FROM instructor') as $rowas) {
+}
 ?>
 
 <div class="contact-info">
@@ -25,7 +27,7 @@ foreach($dbh->query('SELECT COUNT(*) FROM categoria') as $rowa) {
 
       <div class="card">
         <i class="card-icon fas fa-user"></i>
-        <p>Usuarios Registrados 0</p>
+        <p><?php echo "Numero de Instructores " . $rowas['COUNT(*)']; ?></p>
       </div>
 </div>
 <div class="skills">
@@ -44,9 +46,9 @@ foreach($dbh->query('SELECT COUNT(*) FROM categoria') as $rowa) {
       </div>
 
       <div class="skill">
-        <div class="skill-name">Usuarios</div>
+        <div class="skill-name">Instructores</div>
         <div class="skill-bar">
-          <div class="skill-per" per="0"></div>
+          <div class="skill-per" per=<?php echo $rowas["COUNT(*)"]; ?>></div>
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <?php include_once 'views/layouts/navbar.php' ?>
+    <?php include_once 'views/layouts/navbar-alt.php' ?>
     <div class="container my-5">
         <div class="row">
             <div class="col-6 mx-auto">

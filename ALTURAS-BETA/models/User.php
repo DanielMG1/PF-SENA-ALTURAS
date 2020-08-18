@@ -75,6 +75,7 @@
             $password=$this->getPassword();
             if(password_verify($password,$user_obj->password))
             {
+                // Integrar uso de sesiones a partir de aquí
                 return true;
             }
             else

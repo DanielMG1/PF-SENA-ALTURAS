@@ -21,7 +21,7 @@
                         <form action="">
                             <div class="form-group">
                                 <label for="">Nombre</label>
-                                <input type="email" name="email" id="email" class="form-control">
+                                <input type="text" name="name" id="name" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Email</label>

@@ -19,6 +19,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php?controller=login&action=index">Login</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.php?controller=register&action=index">Registro</a>
+                </li>
             </ul>
         </div>
     </div>

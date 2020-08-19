@@ -8,7 +8,9 @@
     </div>
     <div class="row">
         <div class="col">
+            <?php if($_SESSION['rol_id']==1){?>
             <a href="index.php?controller=users&action=create" class="btn btn-primary mb-2">Añadir</a>
+            <?php } ?>
             <table class="table">
                 <thead>
                     <tr>
@@ -27,12 +29,14 @@
                                 <td><?php echo $row->nombre ?></td>
                                 <td><?php echo $row->email ?></td>
                                 <!--Desde el RolId, llamar el nombre del Rol-->
-                                <td><?php echo $row->rol_id ?></td>
+                                <td><?php echo $row->nombre_rol ?></td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="index.php?controller=categories&action=detail&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Detalle</a>
-                                        <a href="index.php?controller=categories&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Editar</a>
-                                        <a href="index.php?controller=categories&action=delete" class="btn btn-outline-danger">Eliminar</a>
+                                        <?php if($_SESSION['rol_id']==1){?>
+                                            <a href="index.php?controller=categories&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Editar</a>
+                                            <a href="index.php?controller=categories&action=delete" class="btn btn-outline-danger">Eliminar</a>
+                                        <?php } ?>
                                     </div>
                                 </td>
                             </tr>

@@ -22,12 +22,14 @@
                 <!-- Dropdown -->
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Admin
+                        <?php 
+                            echo $_SESSION['username'];
+                        ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="index.php?controller=users&action=index">Perfil</a>
                     <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.php?">Cerrar sesión</a>
+                        <a class="dropdown-item" href="index.php?controller=login&action=logout">Cerrar sesión</a>
                     </div>
                 </li>
             </ul>

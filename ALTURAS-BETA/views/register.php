@@ -18,10 +18,10 @@
                         Register
                     </div>
                     <div class="card-body">
-                        <form action="">
+                        <form action="index.php?controller=register&action=save" method="POST">
                             <div class="form-group">
                                 <label for="">Nombre</label>
-                                <input type="text" name="name" id="name" class="form-control">
+                                <input type="text" name="nombre" id="nombre" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Email</label>
@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="password" name="email" id="email" class="form-control">
+                                <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary btn-block">Enviar</button>

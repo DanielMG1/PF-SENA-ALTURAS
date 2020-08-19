@@ -24,4 +24,10 @@ class LoginController extends BaseController{
             echo "Contraseña o email invalidos";
         }
     }
+    public function logout()
+    {
+        session_start();
+        session_destroy();
+        header('Location:index.php?');
+    }
 }

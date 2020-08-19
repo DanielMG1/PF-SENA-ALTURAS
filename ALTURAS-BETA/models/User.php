@@ -75,7 +75,10 @@
             $password=$this->getPassword();
             if(password_verify($password,$user_obj->password))
             {
-                // Integrar uso de sesiones a partir de aquí
+                // Se Integra el  uso de sesiones a partir de aquí
+                session_start();
+                $_SESSION['username']=$user_obj->nombre;
+                $_SESSION['rol_id']=$user_obj->rol_id;
                 return true;
             }
             else
@@ -88,5 +91,55 @@
             return false;
         }
     
+    }
+    // Función especial de getAll para traer el nombre del rol.
+    public function getAllUsers()
+    {
+        try {
+            // Selecciona todos los campos de la tabla usuario y solo el nombre de la tabla de roles con el alias nombre_rol
+            $sql = $this->dbConnection->prepare("SELECT usuarios.*,roles.nombre AS nombre_rol FROM usuarios INNER JOIN roles ON roles.id = usuarios.rol_id");
+            
+            // Ejecutamos
+            $sql->execute();
+            $resultSet = null;
+            // Ahora vamos a indicar el fetch mode cuando llamamos a fetch:
+            while ($row = $sql->fetch(PDO::FETCH_OBJ)) {
+                $resultSet[] = $row;
+            }
+            return $resultSet;
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+            die();
+        }
+    }
+
+    public function create()
+    {
+        try{
+            //Consulta
+            $sql = $this->dbConnection->prepare("INSERT INTO usuarios (nombre,email,rol_id,password) VALUES(:nombre,:email,:rol_id,:password)");
+
+            $nombre     =$this->getNombre();
+            $email      =$this->getEmail();
+            $rol_id     =$this->getRolId();
+            $password   =$this->getPassword();
+            $password_hash = password_hash($password,PASSWORD_DEFAULT,['cost'=>12]);
+
+            $sql->bindParam(':nombre',$nombre);
+            $sql->bindParam(':email',$email);
+            $sql->bindParam(':rol_id',$rol_id);
+            $sql->bindParam(':password',$password_hash);
+
+            if($sql->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+            die();
+        }
     }
  }

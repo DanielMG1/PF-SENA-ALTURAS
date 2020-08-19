@@ -142,5 +142,53 @@
         return $this;
     }
 
+    //GUARDAR
+    public function save()
+    {
+        $sql            = $this->dbConnection->prepare("INSERT INTO herramientas (nombre,marca,longitud,serie,descripcion,cantidad,entidad_cert,fecha_fbc,norma_cert,vencimiento) VALUES(:nombre,:marca,:longitud,:serie,:descripcion,:cantidad,:entidad_cert,:fecha_fbc,:norma_cert,:vencimiento)");
+        $nombre         = $this->getNombre();
+        $marca          = $this->getMarca();
+        $longitud       = $this->getLongitud();
+        $serie          = $this->getSerie();
+        $descripcion    = $this->getDescripcion();
+        $cantidad       = $this->getCantidad();
+        $entidad_cert   = $this->getEntidad();
+        $fecha_fab      = $this->getFechaFab();
+        $norma_cert     = $this->getNorma();
+        $vencimiento    = $this->getVencimiento();
+        
+        $sql->bindParam(':nombre',$nombre);
+        $sql->bindParam(':marca',$marca);
+        $sql->bindParam(':longitud',$longitud);
+        $sql->bindParam(':serie',$serie);
+        $sql->bindParam(':descripcion',$descripcion);
+        $sql->bindParam(':cantidad',$cantidad);
+        $sql->bindParam(':entidad_cert',$entidad_cert);
+        $sql->bindParam(':fecha_fbc',$fecha_fbc);
+        $sql->bindParam(':norma_cert',$norma_cert);
+        $sql->bindParam(':vencimiento',$vencimiento);
+
+        if($sql->execute()){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+
+    public function find()
+    {
+        $sql = $this->dbConnection->prepare("SELECT*FROM herramientas WHERE id=:id");
+        $id = $this->getId();
+
+        $sql->bindParam(':id',$id);
+        $sql->execute();
+        if($row = $sql->fetch(PDO::FETCH_OBJ)){
+            $herramienta_obj = new Tool($row->id,$row->nombre,$row->marca,$row->longitud,$row->serie,$row->descripcion,$row->cantidad,$row->foto,$row->entidad_cert,$row->fecha_fbc,$row->norma_cert,$row->vencimiento); 
+        }else{
+            $herramienta_obj = null;
+        }
+        return $herramienta_obj;
+    }
 
  }

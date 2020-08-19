@@ -2,10 +2,10 @@
 -- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 18-08-2020 a las 22:17:18
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 19-08-2020 a las 20:43:39
 -- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.10
+-- Versión de PHP: 7.2.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,13 +40,36 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `nombre`, `descripcion`, `foto`) VALUES
-(1, 'Cascos', 'Tipo de laso', ''),
-(2, 'Correas', 'Riatas y correas', ''),
-(3, 'Ganchos', 'Los ganchos', NULL),
-(4, 'Otros ganchos', 'los ganchos', NULL),
-(5, 'Otros ganchos', 'los ganchos', NULL),
-(6, 'Correas', 'las correas', NULL),
-(7, 'arnes', 'arnes', NULL);
+(8, 'Cascos', 'hsdbajbdskj', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `herramientas`
+--
+
+CREATE TABLE `herramientas` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `marca` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `longitud` int(11) NOT NULL,
+  `serie` int(11) NOT NULL,
+  `descripcion` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `foto` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `entidad_cert` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `fecha_fbc` text COLLATE utf8_spanish_ci DEFAULT NULL,
+  `norma_cert` text COLLATE utf8_spanish_ci DEFAULT NULL,
+  `vencimiento` text COLLATE utf8_spanish_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `herramientas`
+--
+
+INSERT INTO `herramientas` (`id`, `nombre`, `marca`, `longitud`, `serie`, `descripcion`, `cantidad`, `foto`, `entidad_cert`, `fecha_fbc`, `norma_cert`, `vencimiento`) VALUES
+(1, 'Pastel', 'textil', 12, 24243243, 'lowrnfasklf', 12, NULL, 'alturas', NULL, '123213', '4556'),
+(2, 'gthkh', 'textil', 12, 24243243, 'utjgxcjuyhc.kh', 12, NULL, 'alturas', NULL, '123213', '4556');
 
 -- --------------------------------------------------------
 
@@ -99,6 +122,12 @@ ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `herramientas`
+--
+ALTER TABLE `herramientas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
@@ -120,7 +149,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `herramientas`
+--
+ALTER TABLE `herramientas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`

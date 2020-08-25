@@ -6,9 +6,11 @@
             <h3>Herrramientas</h3>
         </div>
     </div>
-    <div class="row">
+    <div class="row my-4">
         <div class="col">
+        <?php if($_SESSION['rol_id']==1){?>
             <a href="index.php?controller=tools&action=create" class="btn btn-primary mb-2">Añadir</a>
+        <?php } ?>
             <table class="table">
                 <thead>
                     <tr>
@@ -34,7 +36,7 @@
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="index.php?controller=tools&action=detail&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Detalle</a>
-                                        <a href="index.php?controller=tools&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Editar</a>
+                                        <a href="index.php?controller=tools&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-info">Editar</a>
                                         <a href="index.php?controller=tools&action=delete" class="btn btn-outline-danger">Eliminar</a>
                                     </div>
                                 </td>

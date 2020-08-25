@@ -11,7 +11,7 @@
             <?php if($_SESSION['rol_id']==1){?>
             <a href="index.php?controller=users&action=create" class="btn btn-primary mb-2">Añadir</a>
             <?php } ?>
-            <table class="table">
+            <table class="table"id="table">
                 <thead>
                     <tr>
                         <th>Id</th>

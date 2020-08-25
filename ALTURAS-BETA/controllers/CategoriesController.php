@@ -54,5 +54,14 @@ class CategoriesController extends BaseController{
         require_once 'views/dashboard/categories/edit.php';
     }
 
+    //Eliminar
+    public function destroy()
+    {
+        $id = isset($_GET['id'])?$_GET['id']:'';
+        $categoria_obj = new Category($id,null,null,null);
+        $categoria = $categoria_obj->delete();
+        require_once 'views/dashboard/categories/index.php';
+    }
+
 
 }

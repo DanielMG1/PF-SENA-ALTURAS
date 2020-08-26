@@ -191,4 +191,33 @@
         return $herramienta_obj;
     }
 
+    public function getAllToolsByStock()
+    {
+        $cantidad = $this->getCantidad();
+        try {
+            // Selecciona todos los campos de la tabla herramientas y solo el nombre de la tabla de roles con el alias nombre_rol
+            $sql = $this->dbConnection->prepare("SELECT*FROM herramientas WHERE cantidad <= :cantidad");
+            
+            // Ejecutamos
+            $sql->execute([
+                ':cantidad'=>$cantidad
+            ]);
+
+            $resultSet = [];
+            // Ahora vamos a indicar el fetch mode cuando llamamos a fetch:
+            while ($row = $sql->fetch(PDO::FETCH_OBJ)) {
+                $resultSet[] = $row;
+            }
+            return $resultSet;
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+            die();
+        }
+    }
+    public function supr($id){
+		$sql = $this->dbConnection->prepare("DELETE FROM herramientas WHERE id=:id");
+		$sql->bindParam(':id',$id);
+		$sql->execute();
+	}
+
  }

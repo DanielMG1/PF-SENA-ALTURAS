@@ -48,7 +48,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Vencimiento</label>
-                                <input type="text" name="vencimiento" id="vencimiento" class="form-control">
+                                <input type="date" name="vencimiento" id="vencimiento" class="form-control">
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary btn-block">Enviar</button>

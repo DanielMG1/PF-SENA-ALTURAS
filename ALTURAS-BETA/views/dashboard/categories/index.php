@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col">
             <a href="index.php?controller=categories&action=create" class="btn btn-primary mb-2">Añadir</a>
-            <table class="table">
+            <table class="table" id="table">
                 <thead>
                     <tr>
                         <th>Id</th>

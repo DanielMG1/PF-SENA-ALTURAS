@@ -2,6 +2,7 @@
  
  class User extends BaseModel
  {
+    // private $id;
     private $nombre;
     private $email;
     private $rol_id;
@@ -10,12 +11,22 @@
     public function __construct($nombre=null,$email=null,$rol_id=null,$password=null)
     {
         parent::__construct();
+        // $this->id=$id;
         $this->nombre=$nombre;
         $this->email=$email;
         $this->rol_id=$rol_id;
         $this->password=$password;
         $this->table="usuarios";
     }
+    // public function getId()
+    // {
+    //     return $this->id;
+    // }
+    // public function setId($id)
+    // {
+    //     $this->id=$id;
+    //     return $this;
+    // }
 
     public function getNombre()
     {
@@ -142,4 +153,24 @@
             die();
         }
     }
+    // public function find()
+    // {
+    //     $sql = $this->dbConnection->prepare("SELECT*FROM usuarios WHERE id=:id");
+    //     $id = $this->getRolId();
+
+    //     $sql->bindParam(':id',$id);
+    //     $sql->execute();
+    //     if($row = $sql->fetch(PDO::FETCH_OBJ)){
+    //         $user_obj = new User($row->nombre,$row->email,$row->rol_id,$row->password);
+    //     }else{
+    //         $user_obj = null;
+    //     }
+    //     return $user_obj;
+    // }
+
+    public function supr($id){
+		$sql = $this->dbConnection->prepare("DELETE FROM usuarios WHERE id=:id");
+		$sql->bindParam(':id',$id);
+		$sql->execute();
+	}
  }

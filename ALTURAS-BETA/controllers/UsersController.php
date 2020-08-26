@@ -17,6 +17,11 @@ class UsersController extends BaseController{
         $all_users = $user_obj->getAllUsers();
         require_once 'views/dashboard/users/index.php';
     }
+    //GUARDAR
+    public function create()
+    {
+        require_once 'views/dashboard/users/create.php';
+    }
 
     public function save()
     {
@@ -29,13 +34,28 @@ class UsersController extends BaseController{
         $resp = $user_obj->create();
 
         if($resp){
-            header('Location:index.php?');
+            header('Location:index.php?controller=users&action=index');
         }else{
             echo 'No fue posible crear el usuario';
         }
         
     }
+    //DETALLE
+    // public function detail()
+    // {
+    //     $id = isset($_GET['id'])?$_GET['id']:'';
+    //     $user_obj = new User($id,null,null,null,null);
+    //     $usuario = $user_obj->find();
+    //     require_once 'views/dashboard/users/detail.php';
+    // }
 
+    //ELIMINAR
+    public function delete(){
+        $id = isset($_GET['id'])? $_GET['id']: "";
+        $user_obj = new User();
+        $user_obj->supr($id);
+        header("Location:index.php?controller=users&action=index");
+    }
     
 
 }

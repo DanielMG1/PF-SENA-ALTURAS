@@ -58,7 +58,17 @@ class ToolsController extends BaseController{
     //EDITAR
     public function edit()
     {
+        $id= isset($_GET['id'])? $_GET['id'] : "";
+        $herramienta_obj = new Tool($id,null,null,null,null,null,null,null,null,null,null,null);
+        $herramienta = $herramienta_obj->find();
         require_once 'views/dashboard/tools/edit.php';
     }
+    //ELIMINAR
+    public function delete(){
+		$id = isset($_GET['id'])? $_GET['id']: "";
+		$herramienta_obj = new Tool();
+		$herramienta_obj->supr($id);
+		header("Location:index.php?controller=tools&action=index");
+	}
 
 }

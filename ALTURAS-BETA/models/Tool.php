@@ -11,11 +11,11 @@
     private $cantidad;
     private $foto;
     private $entidad_cert;
-    private $fecha_fab;
+    private $fecha_fbc;
     private $norma_cert;
     private $vencimiento;
     
-    public function __construct($id=null,$nombre=null,$marca=null,$longitud=null,$serie=null,$descripcion=null,$cantidad=null,$foto=null,$entidad_cert=null,$fecha_fab=null,$norma_cert=null,$vencimiento=null)
+    public function __construct($id=null,$nombre=null,$marca=null,$longitud=null,$serie=null,$descripcion=null,$cantidad=null,$foto=null,$entidad_cert=null,$fecha_fbc=null,$norma_cert=null,$vencimiento=null)
     {
         parent::__construct();
         $this->id=$id;
@@ -27,7 +27,7 @@
         $this->cantidad=$cantidad;
         $this->foto=$foto;
         $this->entidad_cert=$entidad_cert;
-        $this->fecha_fab=$fecha_fab;
+        $this->fecha_fbc=$fecha_fbc;
         $this->norma_cert=$norma_cert;
         $this->vencimiento=$vencimiento;
         $this->table="herramientas";
@@ -116,11 +116,11 @@
     }
     public function getFechaFab()
     {
-        return $this->fecha_fab;
+        return $this->fecha_fbc;
     }
-    public function setFechaFab($fecha_fab)
+    public function setFechaFab($fecha_fbc)
     {
-        $this->fecha_fab=$fecha_fab;
+        $this->fecha_fbc=$fecha_fbc;
         return $this;
     }
     public function getNorma()
@@ -153,7 +153,7 @@
         $descripcion    = $this->getDescripcion();
         $cantidad       = $this->getCantidad();
         $entidad_cert   = $this->getEntidad();
-        $fecha_fab      = $this->getFechaFab();
+        $fecha_fbc      = $this->getFechaFab();
         $norma_cert     = $this->getNorma();
         $vencimiento    = $this->getVencimiento();
         
@@ -175,6 +175,43 @@
         }
         
     }
+
+    
+    //ACTUALIZAR
+    public function update()
+    {
+        $sql            = $this->dbConnection->prepare("UPDATE herramientas SET nombre=:nombre,marca=:marca,longitud=:longitud,serie=:serie,descripcion=:descripcion,cantidad=:cantidad,entidad_cert=:entidad_cert,fecha_fbc=:fecha_fbc,norma_cert=:norma_cert WHERE vencimiento=:vencimiento");
+        $nombre         = $this->getNombre();
+        $marca          = $this->getMarca();
+        $longitud       = $this->getLongitud();
+        $serie          = $this->getSerie();
+        $descripcion    = $this->getDescripcion();
+        $cantidad       = $this->getCantidad();
+        $entidad_cert   = $this->getEntidad();
+        $fecha_fbc      = $this->getFechaFab();
+        $norma_cert     = $this->getNorma();
+        $vencimiento    = $this->getVencimiento();
+        
+        $sql->bindParam(':nombre',$nombre);
+        $sql->bindParam(':marca',$marca);
+        $sql->bindParam(':longitud',$longitud);
+        $sql->bindParam(':serie',$serie);
+        $sql->bindParam(':descripcion',$descripcion);
+        $sql->bindParam(':cantidad',$cantidad);
+        $sql->bindParam(':entidad_cert',$entidad_cert);
+        $sql->bindParam(':fecha_fbc',$fecha_fbc);
+        $sql->bindParam(':norma_cert',$norma_cert);
+        $sql->bindParam(':vencimiento',$vencimiento);
+
+        if($sql->execute()){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+
+
 
     public function find()
     {

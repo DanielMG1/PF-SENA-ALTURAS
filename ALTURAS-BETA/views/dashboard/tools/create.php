@@ -40,7 +40,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Fecha_fab</label>
-                                <input type="date" name="fecha_fab" id="fecha_fab" class="form-control">
+                                <input type="date" name="fecha_fbc" id="fecha_fbc" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Norma_cert</label>

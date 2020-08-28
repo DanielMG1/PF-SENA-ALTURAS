@@ -32,9 +32,9 @@
                                 <td><?php echo $row->nombre_rol ?></td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="index.php?controller=users&action=detail&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Detalle</a>
+                                        <a href="index.php?controller=users&action=detail&email=<?php echo $row->email ?>" class="btn btn-outline-primary">Detalle</a>
                                         <?php if($_SESSION['rol_id']==1){?>
-                                            <a href="index.php?controller=users&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Editar</a>
+                                            <a href="index.php?controller=users&action=edit&email=<?php echo $row->email ?>" class="btn btn-outline-primary">Editar</a>
                                             <a href="index.php?controller=users&action=delete&id=<?php echo $row->id ?>" class="btn btn-outline-danger">Eliminar</a>
                                         <?php } ?>
                                     </div>

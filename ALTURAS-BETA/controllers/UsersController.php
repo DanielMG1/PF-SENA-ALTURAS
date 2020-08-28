@@ -41,13 +41,23 @@ class UsersController extends BaseController{
         
     }
     //DETALLE
-    // public function detail()
-    // {
-    //     $id = isset($_GET['id'])?$_GET['id']:'';
-    //     $user_obj = new User($id,null,null,null,null);
-    //     $usuario = $user_obj->find();
-    //     require_once 'views/dashboard/users/detail.php';
-    // }
+    public function detail()
+    {
+        $email = isset($_GET['email'])?$_GET['email']:'';
+        $user_obj = new User(null,$email,null,null);
+        $usuario = $user_obj->find();
+        require_once 'views/dashboard/users/detail.php';
+    }
+
+
+    //EDITAR REDIRECCIONAR
+    public function edit()
+    {
+        $email = isset($_POST['email'])? $_POST['email'] : "";
+        $user_obj = new User($email);
+        $all_users = $user_obj->find();
+        require_once 'views/dashboard/users/edit.php';
+    }
 
     //ELIMINAR
     public function delete(){

@@ -15,7 +15,6 @@
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Descripcion</th>
-                        <th>Foto</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -26,12 +25,13 @@
                                 <td><?php echo $row->id ?></td>
                                 <td><?php echo $row->nombre ?></td>
                                 <td><?php echo $row->descripcion ?></td>
-                                <td><?php echo $row->foto ?></td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="index.php?controller=categories&action=detail&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Detalle</a>
-                                        <a href="index.php?controller=categories&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Editar</a>
-                                        <a href="index.php?controller=categories&action=delete" class="btn btn-outline-danger">Eliminar</a>
+                                        <?php if($_SESSION['rol_id']==1){?>
+                                            <a href="index.php?controller=categories&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-info">Editar</a>
+                                            <a href="index.php?controller=categories&action=delete&id=<?php echo $row->id ?>" class="btn btn-outline-danger">Eliminar</a>
+                                        <?php } ?>
                                     </div>
                                 </td>
                             </tr>

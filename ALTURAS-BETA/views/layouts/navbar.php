@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="index.php?controller=dashboard&action=index">Form-Up</a>
+        <a class="navbar-brand" href="index.php?controller=dashboard&action=index">
+            <img class="mx-auto w-50"src="images/Logo-corto.png" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -17,7 +19,7 @@
                     <a class="nav-link" href="index.php?controller=categories&action=index">Categorías</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php?controller=loans&action=index">Préstamos</a>
+                    <a class="nav-link" href="index.php?controller=loans&action=index">Uso en campo</a>
                 </li>
                 <!-- Dropdown -->
                 <li class="nav-item dropdown active">

@@ -3,7 +3,7 @@
 <div class="container my-3">
     <div class="row">
         <div class="col">
-            <h3>Préstamos</h3>
+            <h3>Uso en Campo</h3>
         </div>
     </div>
     <div class="row">

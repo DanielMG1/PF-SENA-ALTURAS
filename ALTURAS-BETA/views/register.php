@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
 </head>
 
 <body>
     <?php include_once 'views/layouts/navbar-alt.php' ?>
     <div class="container my-5">
         <div class="row">
-            <div class="col-6 mx-auto">
+            <div class="col-4 mx-auto">
                 <div class="card">
-                    <div class="card-header">
-                        Register
+                    <div class="card-header text-center">
+                        <img class="mx-auto w-55"src="images/Logo-completo.png" alt="">
                     </div>
                     <div class="card-body">
                         <form action="index.php?controller=register&action=save" method="POST">
@@ -32,7 +32,7 @@
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary btn-block">Enviar</button>
+                                <button class="btn btn-primary btn-block">Registrarse</button>
                             </div>
                         </form>
                     </div>

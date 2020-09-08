@@ -6,7 +6,7 @@
             <h3>Herrramientas</h3>
         </div>
     </div>
-    <div class="row my-4">
+    <div class="row">
         <div class="col">
         <?php if($_SESSION['rol_id']==1){?>
             <a href="index.php?controller=tools&action=create" class="btn btn-primary mb-2">Añadir</a>

@@ -36,7 +36,7 @@
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="index.php?controller=loans&action=detail&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Detalle</a>
                                         <a href="index.php?controller=loans&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Editar</a>
-                                        <a href="index.php?controller=loans&action=delete" class="btn btn-outline-danger">Eliminar</a>
+                                        <a href="index.php?controller=loans&action=delete&id=<?php echo $row->id ?>" class="btn btn-outline-danger">Eliminar</a>
                                     </div>
                                 </td>
                             </tr>

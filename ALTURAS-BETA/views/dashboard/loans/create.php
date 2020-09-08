@@ -12,7 +12,7 @@ $vector_usuarios = $user_obj->getAll();
             <div class="col-6 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center">Crear Prestamo</h3>
+                        <h3 class="text-center">Crear Uso en campo</h3>
                     </div>
                     <div class="card-body">
                         <form action="index.php?controller=loans&action=save" method="POST">

@@ -91,6 +91,44 @@ class Loan extends BaseModel
         }
     }
 
+    //GUARDAR
+    public function save()
+    {
+        $sql                = $this->dbConnection->prepare("INSERT INTO prestamos (fecha,herramienta_id,cantidad,usuario_id,devuelto) VALUES(:fecha,:herramienta_id,:cantidad,:usaurio_id,:devuelto)");
+        $fecha              = $this->getFecha();
+        $herramienta_id     = $this->getHerramientaId();
+        $cantidad           = $this->getCantidad();
+        $usaurio_id         = $this->getUsuarioId();
+        $devuelto           = $this->getDevuelto();
+        
+        $sql->bindParam(':fecha',$fecha);
+        $sql->bindParam(':herramienta_id',$herramienta_id);
+        $sql->bindParam(':cantidad',$cantidad);
+        $sql->bindParam(':usaurio_id',$usaurio_id);
+        $sql->bindParam(':devuelto',$devuelto);
+
+        if($sql->execute()){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+    public function find()
+    {
+        $sql = $this->dbConnection->prepare("SELECT*FROM prestamos WHERE id=:id");
+        $id = $this->getId();
+
+        $sql->bindParam(':id',$id);
+        $sql->execute();
+        if($row = $sql->fetch(PDO::FETCH_OBJ)){
+            $prestamo_obj = new Loan($row->id,$row->fecha,$row->herramienta_id,$row->cantidad,$row->usuario_id,$row->devuelto); 
+        }else{
+            $prestamo_obj = null;
+        }
+        return $prestamo_obj;
+    }
+
     public function getAllLoansByState()
     {
         $estado = $this->getDevuelto();
@@ -117,6 +155,11 @@ class Loan extends BaseModel
 
     }
 
+    public function supr($id){
+		$sql = $this->dbConnection->prepare("DELETE FROM prestamos WHERE id=:id");
+		$sql->bindParam(':id',$id);
+		$sql->execute();
+	}
 
 }
 

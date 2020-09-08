@@ -22,6 +22,30 @@ class LoansController extends BaseController{
     {
         require_once 'views/dashboard/loans/create.php';
     }
+    public function save ()
+    {
+        $fecha        = isset($_POST['fecha'])?$_POST['fecha']:'';
+        $herramienta_id         = isset($_POST['herramienta_id'])?$_POST['herramienta_id']:'';
+        $cantidad      = isset($_POST['cantidad'])?$_POST['cantidad']:'';
+        $usaurio_id         = isset($_POST['usaurio_id'])?$_POST['usaurio_id']:'';
+        $devuelto   = isset($_POST['devuelto'])?$_POST['devuelto']:'';
+        
+        $prestamo_obj = new Loan(null,$fecha,$herramienta_id,$cantidad,$usaurio_id,$devuelto);
+        if($prestamo_obj->save()){
+            header('Location: index.php?controller=loans&action=index');
+        }else{
+            echo "Error al guardar";
+        }
+        
+    }
+    //DETALLE
+    public function detail()
+    {
+        $id = isset($_GET['id'])?$_GET['id']:'';
+        $prestamo_obj = new Loan($id,null,null,null,null,null);
+        $prestamo = $prestamo_obj->find();
+        require_once 'views/dashboard/loans/detail.php';
+    }
 
     public function export() 
     {
@@ -48,6 +72,22 @@ class LoansController extends BaseController{
             }
         }
         exit;
+    }
+    //EDITAR REDIRECCIONAR
+    public function edit()
+    {
+        $id= isset($_POST['id'])? $_POST['id'] : "";
+        $prestamo_obj = new Loan($id);
+        $all_loans = $prestamo_obj->find();
+        require_once 'views/dashboard/loans/edit.php';
+    }
+
+    //ELIMINAR
+    public function delete(){
+        $id = isset($_GET['id'])? $_GET['id']: "";
+        $prestamo_obj = new loan();
+        $prestamo_obj->supr($id);
+        header("Location:index.php?controller=loans&action=index");
     }
 
 }

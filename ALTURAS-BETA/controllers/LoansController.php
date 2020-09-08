@@ -17,6 +17,11 @@ class LoansController extends BaseController{
         $all_loans = $prestamo_obj->getAllLoans();
         require_once 'views/dashboard/loans/index.php';
     }
+    //GUARDAR
+    public function create()
+    {
+        require_once 'views/dashboard/loans/create.php';
+    }
 
     public function export() 
     {

@@ -28,9 +28,8 @@ class LoansController extends BaseController{
         $herramienta_id         = isset($_POST['herramienta_id'])?$_POST['herramienta_id']:'';
         $cantidad      = isset($_POST['cantidad'])?$_POST['cantidad']:'';
         $usaurio_id         = isset($_POST['usaurio_id'])?$_POST['usaurio_id']:'';
-        $devuelto   = isset($_POST['devuelto'])?$_POST['devuelto']:'';
         
-        $prestamo_obj = new Loan(null,$fecha,$herramienta_id,$cantidad,$usaurio_id,$devuelto);
+        $prestamo_obj = new Loan(null,$fecha,$herramienta_id,$cantidad,$usaurio_id,0);
         if($prestamo_obj->save()){
             header('Location: index.php?controller=loans&action=index');
         }else{

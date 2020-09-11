@@ -19,7 +19,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Rol</label>
-                                <input type="number" name="rol_id" id="rol_id" class="form-control">
+                                <select name="rol_id" id="rol_id" class="form-control">
+                                    <option disabled selected>Selección Rol</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Usuario</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Password</label>

@@ -90,13 +90,10 @@
     
 
     //Delete
-    public function delete()
-    {
-        $sql = $this->dbConnection->prepare("DELETE*FROM categorias WHERE id=:id");
-        $id = $this->getId();
-
-        $sql->bindParam(':id',$id);
-        $sql->execute();
-    }
+    public function supr($id){
+		$sql = $this->dbConnection->prepare("DELETE FROM categorias WHERE id=:id");
+		$sql->bindParam(':id',$id);
+		$sql->execute();
+	}
 
  }

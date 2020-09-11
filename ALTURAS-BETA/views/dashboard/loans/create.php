@@ -49,10 +49,6 @@ $vector_usuarios = $user_obj->getAll();
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Devuelto</label>
-                                <input name="devuelto" id="devuelto" class="form-control">
-                            </div>
-                            <div class="form-group">
                                 <button class="btn btn-primary btn-block">Enviar</button>
                             </div>
                         </form>

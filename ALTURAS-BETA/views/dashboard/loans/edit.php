@@ -1,13 +1,7 @@
 <?php 
 $id= isset($_GET['id'])? $_GET['id'] : "";
-$prestamo_obj = new Loan();
-$all_loans = $prestamo_obj->find($id);
-
-$herramienta_obj = new Tool();
-$vector_herramientas = $herramienta_obj->getAll();
-
-$user_obj = new User();
-$vector_usuarios = $user_obj->getAll();
+$prestamo_obj = new Loan($id);
+$all_loans = $prestamo_obj->find();
 ?>
 <?php include_once 'views/layouts/header.php' ?>
 <?php include_once 'views/layouts/navbar.php' ?>
@@ -22,39 +16,26 @@ $vector_usuarios = $user_obj->getAll();
                         <form action="index.php?controller=loans&action=update" method="POST">
                             <div class="form-group">
                             <label for="">Fecha Uso</label>
-                                <input value="<?php echo $all_loans->getFecha()?>" type="date" name="fecha" id="fecha" class="form-control">
+                                <input value="<?php echo $all_loans->getFecha()?>" type="datetime-local" name="fecha" id="fecha" class="form-control">
                             </div>
                             <div class="form-group">
-                            <label for="herramienta_id">Herramienta: </label>
-                                <select name="herramienta_id" id="herramienta_id" class="form-control">
-                                    <option value="" Disabled selected>ID </option>
-                                    <?php 
-                                        foreach ($vector_herramientas as $row){?>
-                                            <option value="<?php echo $row->id;?>">
-                                                <?php echo $row->id." - ". $row->nombre;?>
-                                            </option>
-                                    <?php }?>
-                                </select>
+                            <label for="herramienta_id">Herramienta ID: </label>
+                                <input value="<?php echo $all_loans->getHerramientaId()?>" name="herramienta_id" id="herramienta_id" class="form-control" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="">Cantidad</label>
-                                <input name="cantidad" id="cantidad" class="form-control">
+                                <input value="<?php echo $all_loans->getCantidad()?>" name="cantidad" id="cantidad" class="form-control">
                             </div>
                             <div class="form-group">
-                            <label for="usaurio_id">Usuario Responsable: </label>
-                                <select name="usaurio_id" id="usaurio_id" class="form-control">
-                                    <option value="" Disabled selected>ID </option>
-                                    <?php 
-                                        foreach ($vector_usuarios as $row){?>
-                                            <option value="<?php echo $row->id;?>">
-                                                <?php echo $row->id." - ". $row->nombre;?>
-                                            </option>
-                                    <?php }?>
-                                </select>
+                            <label for="usaurio_id">Usuario Responsable ID: </label>
+                                <input value="<?php echo $all_loans->getUsuarioId()?>" name="usaurio_id" id="usaurio_id" class="form-control" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="">Devuelto</label>
-                                <input name="devuelto" id="devuelto" class="form-control">
+                                <select name="devuelto" id="devuelto" class="form-control">
+                                    <option value="0">No devuelto</option>
+                                    <option value="1">Devuelto</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary btn-block">Enviar</button>

@@ -114,6 +114,29 @@ class Loan extends BaseModel
         }
         
     }
+    //EDITAR
+    public function update()
+    {
+        $sql                = $this->dbConnection->prepare("UPDATE prestamos SET fecha=:fecha,herramienta_id=:herramienta_id,cantidad=:cantidad,devuelto=:devuelto WHERE usuario_id=:usaurio_id");
+        $fecha              = $this->getFecha();
+        $herramienta_id     = $this->getHerramientaId();
+        $cantidad           = $this->getCantidad();
+        $usaurio_id         = $this->getUsuarioId();
+        $devuelto           = $this->getDevuelto();
+        
+        $sql->bindParam(':fecha',$fecha);
+        $sql->bindParam(':herramienta_id',$herramienta_id);
+        $sql->bindParam(':cantidad',$cantidad);
+        $sql->bindParam(':usaurio_id',$usaurio_id);
+        $sql->bindParam(':devuelto',$devuelto);
+
+        if($sql->execute()){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
     public function find()
     {
         $sql = $this->dbConnection->prepare("SELECT*FROM prestamos WHERE id=:id");

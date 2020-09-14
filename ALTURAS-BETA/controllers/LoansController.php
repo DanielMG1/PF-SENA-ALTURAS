@@ -37,6 +37,24 @@ class LoansController extends BaseController{
         }
         
     }
+    //EDITAR
+    public function update()
+    {
+        $fecha        = isset($_POST['fecha'])?$_POST['fecha']:'';
+        $herramienta_id         = isset($_POST['herramienta_id'])?$_POST['herramienta_id']:'';
+        $cantidad      = isset($_POST['cantidad'])?$_POST['cantidad']:'';
+        $usaurio_id         = isset($_POST['usaurio_id'])?$_POST['usaurio_id']:'';
+        $devuelto         = isset($_POST['devuelto'])?$_POST['devuelto']:'';
+        
+        $prestamo_obj = new Loan(null,$fecha,$herramienta_id,$cantidad,$usaurio_id,$devuelto);
+        if($prestamo_obj->update()){
+            header('Location: index.php?controller=loans&action=index');
+        }else{
+            echo "Error al Actualizar";
+        }
+        
+    }
+
     //DETALLE
     public function detail()
     {

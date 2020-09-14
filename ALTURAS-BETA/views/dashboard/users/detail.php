@@ -14,7 +14,7 @@
                         <h5>Email:</h5>
                         <h6><?php echo $usuario->getEmail()?></h6>
                         <h5>Tipo Usuario:</h5>
-                        <h6><?php echo $usuario->getRolId()?></h6>
+                        <h6><?php echo $usuario->getRolId() == 1?"<span class='badge badge-success'>Administrador</span>":"<span class='badge badge-primary'>Usuario general</span>"?></h6>
                     </div>
                 </div>
             </div>

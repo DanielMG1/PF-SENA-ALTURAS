@@ -37,8 +37,15 @@
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="index.php?controller=tools&action=detail&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Detalle</a>
                                     <?php if($_SESSION['rol_id']==1){?>
-                                        <a href="index.php?controller=tools&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-info">Editar</a>
-                                        <a href="index.php?controller=tools&action=delete&id=<?php echo $row->id ?>" class="btn btn-outline-danger">Eliminar</a>
+                                        <a href="index.php?controller=tools&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-info">Editar</a>git 
+                                        <div class="dropdown">
+                                        <button class="btn btn-outline-danger" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Eliminar
+                                        </button>
+                                        <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton">
+                                            <a class="btn btn-outline-warning" href="index.php?controller=tools&action=delete&id=<?php echo $row->id ?>">¿Seguro desea eliminar?</a>
+                                        </div>
+                                    </div>
                                     <?php } ?>
                                     </div>
                                 </td>

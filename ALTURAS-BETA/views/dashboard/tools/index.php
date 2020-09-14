@@ -37,7 +37,7 @@
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="index.php?controller=tools&action=detail&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Detalle</a>
                                     <?php if($_SESSION['rol_id']==1){?>
-                                        <a href="index.php?controller=tools&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-info">Editar</a>git 
+                                        <a href="index.php?controller=tools&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-info">Editar</a> 
                                         <div class="dropdown">
                                         <button class="btn btn-outline-danger" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Eliminar

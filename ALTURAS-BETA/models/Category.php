@@ -87,7 +87,24 @@
     }
 
     //Update
-    
+    public function update()
+    {
+        $sql = $this->dbConnection->prepare("UPDATE categorias SET nombre=:nombre,descripcion=:descripcion WHERE id=:id");
+        $id = $this->getId();
+        $nombre = $this->getNombre();
+        $descripcion = $this->getDescripcion();
+        
+        $sql->bindParam(':id',$id);
+        $sql->bindParam(':nombre',$nombre);
+        $sql->bindParam(':descripcion',$descripcion);
+
+        if($sql->execute()){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
 
     //Delete
     public function supr($id){

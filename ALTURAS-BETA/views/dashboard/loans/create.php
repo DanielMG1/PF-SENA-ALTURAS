@@ -1,10 +1,3 @@
-<?php 
-$herramienta_obj = new Tool();
-$vector_herramientas = $herramienta_obj->getAll();
-
-$user_obj = new User();
-$vector_usuarios = $user_obj->getAll();
-?>
 <?php include_once 'views/layouts/header.php' ?>
 <?php include_once 'views/layouts/navbar.php' ?>
 <div class="container my-5">

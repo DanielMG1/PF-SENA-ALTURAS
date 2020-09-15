@@ -40,19 +40,19 @@
                             </div>
                             <!-- Implementar CK editor y subir foto -->
                             <div class="form-group">
-                                <label for="">Entidad_cert</label>
+                                <label for="">Entidad certificadora</label>
                                 <input value="<?php echo $all_herramientas->getEntidad()?>" type="text" name="entidad_cert" id="entidad_cert" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Fecha_fbc</label>
+                                <label for="">Fecha de fabricación</label>
                                 <input value="<?php echo $all_herramientas->getFechaFab()?>" type="date" name="fecha_fbc" id="fecha_fbc" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Norma_cert</label>
+                                <label for="">Norma certificadora</label>
                                 <input value="<?php echo $all_herramientas->getNorma()?>" type="text" name="norma_cert" id="norma_cert" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Vencimiento</label>
+                                <label for="">Fecha de Vencimiento</label>
                                 <input value="<?php echo $all_herramientas->getVencimiento()?>" type="date" name="vencimiento" id="vencimiento" class="form-control">
                             </div>
                             <div class="form-group">

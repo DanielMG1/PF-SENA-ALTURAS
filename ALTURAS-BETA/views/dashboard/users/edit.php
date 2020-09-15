@@ -1,8 +1,3 @@
-<?php
-    $email = isset($_GET['email'])? $_GET['email'] : "";
-    $user_obj = new User($email);
-    $all_users = $user_obj->find();
-?>
 <?php include_once 'views/layouts/header.php' ?>
 <?php include_once 'views/layouts/navbar.php' ?>
 <div class="container my-5">
@@ -14,20 +9,29 @@
                     </div>
                     <div class="card-body">
                         <form action="index.php?controller=users&action=update" method="POST">
-                        <div class="form-group">
+                            <input type="hidden" name="id" value="<?php echo $usuario['id']?>">
+                            <div class="form-group">
                                 <label for="">Nombre</label>
-                                <input value="<?php echo $all_users->getNombre()?>" type="text" name="nombre" id="nombre" class="form-control">
+                                <input value="<?php echo $usuario['nombre']?>" type="text" name="nombre" id="nombre" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Email</label>
-                                <input value="<?php echo $all_users->getEmail()?>" type="email" name="email" id="email" class="form-control">
+                                <input value="<?php echo $usuario['email']?>" type="email" name="email" id="email" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="">Rol</label>
-                                <input value="<?php echo $all_users->getRolId()?>" type="number" name="rol_id" id="rol_id" class="form-control">
+                                <select name="rol_id" id="rol_id" class="form-control">
+                                    <?php foreach($roles as $role){
+                                        if($role->id==$usuario['rol_id']){?>
+                                        <option value="<?php echo $role->id?>" selected><?php echo $role->nombre?></option>  
+                                    <?php }else {?>
+                                        <option value="<?php echo $role->id?>" ><?php echo $role->nombre?></option>
+                                    <?php } ?>
+                                    <?php } ?>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary btn-block">Enviar</button>
+                                <button class="btn btn-primary btn-block">Actualizar</button>
                             </div>
                         </form>
                     </div>

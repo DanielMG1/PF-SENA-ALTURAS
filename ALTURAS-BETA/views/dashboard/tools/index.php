@@ -3,7 +3,7 @@
 <div class="container my-3">
     <div class="row">
         <div class="col">
-            <h3>Herrramientas</h3>
+            <h3>Herramientas</h3>
         </div>
     </div>
     <div class="row">

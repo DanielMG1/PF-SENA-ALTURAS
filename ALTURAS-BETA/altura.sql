@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-08-2020 a las 19:19:49
+-- Tiempo de generación: 15-09-2020 a las 21:40:46
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.10
 
@@ -47,8 +47,7 @@ INSERT INTO `categorias` (`id`, `nombre`, `descripcion`, `foto`) VALUES
 (5, 'Otros ganchos', 'los ganchos', NULL),
 (6, 'Correas', 'las correas', NULL),
 (7, 'arnes', 'arnes', NULL),
-(8, 'Rescate', 'Equipos de rescate', NULL),
-(9, 'Riatas', 'las riatas', NULL);
+(8, 'Rescate', 'Equipos de rescate', NULL);
 
 -- --------------------------------------------------------
 
@@ -76,8 +75,9 @@ CREATE TABLE `herramientas` (
 --
 
 INSERT INTO `herramientas` (`id`, `nombre`, `marca`, `longitud`, `serie`, `descripcion`, `cantidad`, `foto`, `entidad_cert`, `fecha_fbc`, `norma_cert`, `vencimiento`) VALUES
-(1, 'Pastel', 'textil', 12, 24243243, 'lowrnfasklf', 4, NULL, 'alturas', NULL, '123213', '4556'),
-(2, 'gthkh', 'textil', 12, 24243243, 'utjgxcjuyhc.kh', 12, NULL, 'alturas', NULL, '123213', '4556');
+(2, 'Serrucho', 'stanley', 10, 3333, 'lso serruchos', 8, NULL, 'ISO9000', '2020-09-16', 'ISO9001', '2020-09-10'),
+(6, 'Martillo', 'stanley', 10, 123, 'Los martillos', 6, NULL, 'ISO9000', '2020-09-09', 'ISO9000', '2020-09-20'),
+(7, 'Ganchos', 'stanley', 2, 3333, 'Los ganchos', 2, NULL, 'ISO9000', '2020-09-16', 'ISO9000', '2020-09-09');
 
 -- --------------------------------------------------------
 
@@ -99,8 +99,10 @@ CREATE TABLE `prestamos` (
 --
 
 INSERT INTO `prestamos` (`id`, `fecha`, `herramienta_id`, `cantidad`, `usuario_id`, `devuelto`) VALUES
-(1, '2020-08-25 00:00:00', 1, 5, 6, 0),
-(2, '2020-08-25 00:00:00', 2, 4, 1, 1);
+(2, '2020-09-03 00:00:00', 2, 10, 1, 1),
+(4, '2020-09-09 00:00:00', 6, 4, 2, 1),
+(5, '2020-09-22 00:00:00', 2, 3, 6, 1),
+(8, '2020-09-15 00:00:00', 2, 7, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -141,10 +143,15 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `rol_id`, `password`) VALUES
 (1, 'Daniel', 'daniel@mail.com', 1, '$2y$10$TNkKcN3aryXBOzE6vbjiA.8Uc109rT0HR1N8ij1hbhOaZaoRo6rpW'),
-(2, 'Leonardo', 'leo@mail.com', 2, '$2y$10$TNkKcN3aryXBOzE6vbjiA.8Uc109rT0HR1N8ij1hbhOaZaoRo6rpW'),
+(2, 'Leonardo', 'leo@mail.com', 2, '$2y$12$NGO4H.2W/sIvlzW.AxtFj.c4X8CONFUa0wft2E8GvP6oR/02D24lG'),
 (3, 'Diana', 'diana@mail.com', 2, '$2y$10$TNkKcN3aryXBOzE6vbjiA.8Uc109rT0HR1N8ij1hbhOaZaoRo6rpW'),
-(5, 'Luis Miguel', 'migue@mail.com', 2, '$2y$12$0VzHALCz0vNsVitq1xr77O/RKup1zeqd9hJu/hovcQButN21tkVim'),
-(6, 'Andrea', 'andre@mail.com', 2, '$2y$12$DEVdJMXgdchW0FCOO9u8O.jUmY8xA8MBamI56nH/5nfPeI5exx0N.');
+(6, 'Andrea', 'andre@mail.com', 2, '$2y$12$wlG5NQam3CHaKC8qvEuZVeNoNeYYCEXx69CoMzv1gQpGRqKeWKZTO'),
+(11, 'Luisa', 'lulu@mail.com', 2, '$2y$12$GFpb4WjryTTmrMzCa698KudOFscxxuPQvcecTb5nBDSougekW0u4C'),
+(12, 'Sebastian', 'seabs@mail.com', 1, '$2y$12$xmKJcIN3D6MKEcyCAIdry.yGvn5tKQD2/rWIyfodZfbZM9xcbIw56'),
+(15, 'User', 'user@mail.com', 2, '$2y$12$Jt6r2O6u0utY3G4KZ27u/uFlrSg0CRUYIvprmnyHs38NKw0GWlUzG'),
+(16, 'User1', 'user1@mail.com', 2, '$2y$12$QVn6WdS2FExzCAYcjBUccuCMeT/sQFbBs2ym7UNygCAsnPNKzm7G2'),
+(17, 'user2', 'user2@mail.com', 2, '$2y$12$bgOcKSG8DPbPz7gyPmko3OouvuBQPt7gd/8OndAdUXTEXRzVMIh4a'),
+(19, 'User3', 'user3@mail.com', 2, '$2y$12$vS.waa9m2lUdVsuP5mr0JexW3erKyTq3jaD1eObMEArighpwQClM6');
 
 --
 -- Índices para tablas volcadas
@@ -160,7 +167,8 @@ ALTER TABLE `categorias`
 -- Indices de la tabla `herramientas`
 --
 ALTER TABLE `herramientas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nombre` (`nombre`);
 
 --
 -- Indices de la tabla `prestamos`
@@ -192,13 +200,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `herramientas`
+--
+ALTER TABLE `herramientas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -210,7 +224,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Restricciones para tablas volcadas

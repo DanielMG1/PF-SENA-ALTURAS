@@ -90,6 +90,7 @@
                 session_start();
                 $_SESSION['username']=$user_obj->nombre;
                 $_SESSION['rol_id']=$user_obj->rol_id;
+                $_SESSION['email']=$email;
                 return true;
             }
             else
@@ -124,6 +125,7 @@
         }
     }
 
+    //CREAR
     public function create()
     {
         try{
@@ -153,15 +155,41 @@
             die();
         }
     }
+
+    //EDITAR
+    public function update($id)
+    {
+        $sql        =$this->dbConnection->prepare("UPDATE usuarios SET nombre=:nombre,email=:email,rol_id=:rol_id,password=:password WHERE id=:id");
+        $nombre     =$this->getNombre();
+        $email      =$this->getEmail();
+        $rol_id     =$this->getRolId();
+        $password   =$this->getPassword();
+        $password_hash = password_hash($password,PASSWORD_DEFAULT,['cost'=>12]);
+        
+        $sql->bindParam(':id',$id);
+        $sql->bindParam(':nombre',$nombre);
+        $sql->bindParam(':email',$email);
+        $sql->bindParam(':rol_id',$rol_id);
+        $sql->bindParam(':password',$password_hash);
+
+        if($sql->execute()){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+
     public function find()
     {
-        $sql = $this->dbConnection->prepare("SELECT*FROM usuarios WHERE email=:email");
+        $sql = $this->dbConnection->prepare("SELECT usuarios.*,roles.nombre AS nombre_rol FROM usuarios INNER JOIN roles ON roles.id=usuarios.rol_id WHERE usuarios.email=:email");
         $email = $this->getEmail();
 
         $sql->bindParam(':email',$email);
         $sql->execute();
         if($row = $sql->fetch(PDO::FETCH_OBJ)){
-            $user_obj = new User($row->nombre,$row->email,$row->rol_id,$row->password);
+            //$user_obj = new User($row->nombre,$row->email,$row->rol_id,$row->password);
+            $user_obj = ['id'=>$row->id,'nombre'=>$row->nombre,'email'=>$row->email,'rol_id'=>$row->rol_id,'nombre_rol'=>$row->nombre_rol];
         }else{
             $user_obj = null;
         }

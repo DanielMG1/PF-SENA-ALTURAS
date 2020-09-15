@@ -35,6 +35,7 @@
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="index.php?controller=loans&action=detail&id=<?php echo $row->id ?>" class="btn btn-outline-primary">Detalle</a>
+                                    <?php if($_SESSION['rol_id']==1){?>
                                         <a href="index.php?controller=loans&action=edit&id=<?php echo $row->id ?>" class="btn btn-outline-info">Editar</a>
                                         <div class="dropdown">
                                         <button class="btn btn-outline-danger" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,8 +43,9 @@
                                         </button>
                                         <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton">
                                             <a class="btn btn-outline-warning" href="index.php?controller=loans&action=delete&id=<?php echo $row->id ?>">¿Seguro desea eliminar?</a>
+                                        </div>   
                                         </div>
-                                    </div>
+                                    <?php } ?>
                                     </div>
                                 </td>
                             </tr>

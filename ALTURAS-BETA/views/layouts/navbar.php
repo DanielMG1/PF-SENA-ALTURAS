@@ -29,7 +29,7 @@
                         ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="index.php?controller=users&action=index">Perfil</a>
+                        <a class="dropdown-item" href="index.php?controller=users&action=detail&email=<?php echo $_SESSION['email'] ?>">Perfil</a>
                     <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="index.php?controller=login&action=logout">Cerrar sesión</a>
                     </div>

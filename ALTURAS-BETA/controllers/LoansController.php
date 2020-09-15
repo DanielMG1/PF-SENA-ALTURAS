@@ -20,13 +20,18 @@ class LoansController extends BaseController{
     //GUARDAR
     public function create()
     {
+        $herramienta_obj = new Tool();
+        $vector_herramientas = $herramienta_obj->getAll();
+        $user_obj = new User();
+        $vector_usuarios = $user_obj->getAll();
+
         require_once 'views/dashboard/loans/create.php';
     }
     public function save ()
     {
-        $fecha        = isset($_POST['fecha'])?$_POST['fecha']:'';
-        $herramienta_id         = isset($_POST['herramienta_id'])?$_POST['herramienta_id']:'';
-        $cantidad      = isset($_POST['cantidad'])?$_POST['cantidad']:'';
+        $fecha              = isset($_POST['fecha'])?$_POST['fecha']:'';
+        $herramienta_id     = isset($_POST['herramienta_id'])?$_POST['herramienta_id']:'';
+        $cantidad           = isset($_POST['cantidad'])?$_POST['cantidad']:'';
         $usaurio_id         = isset($_POST['usaurio_id'])?$_POST['usaurio_id']:'';
         
         $prestamo_obj = new Loan(null,$fecha,$herramienta_id,$cantidad,$usaurio_id,0);
@@ -40,11 +45,11 @@ class LoansController extends BaseController{
     //EDITAR
     public function update()
     {
-        $fecha        = isset($_POST['fecha'])?$_POST['fecha']:'';
-        $herramienta_id         = isset($_POST['herramienta_id'])?$_POST['herramienta_id']:'';
-        $cantidad      = isset($_POST['cantidad'])?$_POST['cantidad']:'';
+        $fecha              = isset($_POST['fecha'])?$_POST['fecha']:'';
+        $herramienta_id     = isset($_POST['herramienta_id'])?$_POST['herramienta_id']:'';
+        $cantidad           = isset($_POST['cantidad'])?$_POST['cantidad']:'';
         $usaurio_id         = isset($_POST['usaurio_id'])?$_POST['usaurio_id']:'';
-        $devuelto         = isset($_POST['devuelto'])?$_POST['devuelto']:'';
+        $devuelto           = isset($_POST['devuelto'])?$_POST['devuelto']:'';
         
         $prestamo_obj = new Loan(null,$fecha,$herramienta_id,$cantidad,$usaurio_id,$devuelto);
         if($prestamo_obj->update()){
@@ -96,6 +101,10 @@ class LoansController extends BaseController{
         $id= isset($_POST['id'])? $_POST['id'] : "";
         $prestamo_obj = new Loan($id);
         $all_loans = $prestamo_obj->find();
+        $herramienta_obj = new Tool();
+        $vector_herramientas = $herramienta_obj->getAll();
+        $user_obj = new User();
+        $vector_usuarios = $user_obj->getAll();
         require_once 'views/dashboard/loans/edit.php';
     }
 

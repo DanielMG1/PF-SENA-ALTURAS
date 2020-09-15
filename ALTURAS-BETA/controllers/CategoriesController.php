@@ -39,7 +39,7 @@ class CategoriesController extends BaseController{
     //EDITAR
     public function update ()
     {
-        $id      = isset($_POST['id'])?$_POST['id']:'';
+        $id          = isset($_POST['id'])?$_POST['id']:'';
         $nombre      = isset($_POST['nombre'])?$_POST['nombre']:'';
         $descripcion = isset($_POST['descripcion'])?$_POST['descripcion']:'';
         

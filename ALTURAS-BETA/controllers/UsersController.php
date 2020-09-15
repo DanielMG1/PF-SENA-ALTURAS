@@ -53,10 +53,28 @@ class UsersController extends BaseController{
     //EDITAR REDIRECCIONAR
     public function edit()
     {
-        $email = isset($_POST['email'])? $_POST['email'] : "";
-        $user_obj = new User($email);
-        $all_users = $user_obj->find();
+        $email = isset($_GET['email'])?$_GET['email']:'';
+        $user_obj = new User(null,$email,null,null);
+        $usuario = $user_obj->find();
+        $rol_obj = new Role(null,null);
+        $roles   = $rol_obj->getAll();
         require_once 'views/dashboard/users/edit.php';
+    }
+    //EDITAR ACCION
+    public function update()
+    {
+        $id         = isset($_POST['id'])?$_POST['id']:'';
+        $nombre     = isset($_POST['nombre'])?$_POST['nombre']:'';
+        $email      = isset($_POST['email'])?$_POST['email']:'';
+        $rol_id     = isset($_POST['rol_id'])?$_POST['rol_id']:'';
+
+        $user_obj = new User($nombre,$email,$rol_id,null);
+
+        if($user_obj->update($id)){
+            header('Location:index.php?controller=users&action=index');
+        }else{
+            echo "Error al Actualizar";
+        }  
     }
 
     //ELIMINAR

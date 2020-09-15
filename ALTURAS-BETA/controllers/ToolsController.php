@@ -69,6 +69,7 @@ class ToolsController extends BaseController{
             echo "Error al Actualizar";
         }
         
+        
     }
     //DETALLE
     public function detail()

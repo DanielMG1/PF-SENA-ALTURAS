@@ -21,11 +21,11 @@
                         <h6><?php echo $herramienta->getDescripcion()?></h6>
                         <h5>Cantidad:</h5>
                         <h6><?php echo $herramienta->getCantidad()?></h6>
-                        <h5>Entidad_cert:</h5>
+                        <h5>Entidad certificadora:</h5>
                         <h6><?php echo $herramienta->getEntidad()?></h6>
-                        <h5>Norma:</h5>
+                        <h5>Norma de certificación:</h5>
                         <h6><?php echo $herramienta->getNorma()?></h6>
-                        <h5>Vencimiento:</h5>
+                        <h5>Fecha de vencimiento:</h5>
                         <h6><?php echo $herramienta->getVencimiento()?></h6>
                     </div>
                 </div>

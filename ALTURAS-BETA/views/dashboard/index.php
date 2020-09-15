@@ -10,7 +10,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-header text-center">
-                    <h4>Sin devolver</h4>
+                    <h4>Uso en campo sin devolver</h4>
                 </div>
                 <div class="card-body">
                     <table class="table">
